@@ -1,0 +1,29 @@
+@prefix : <http://worldmind.ai/core#>.
+@prefix sh: <http://www.w3.org/ns/shacl#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+# Shape to validate the 'influencedBy' relationship for temporal overlap.
+:InfluencedByTemporalOverlapShape
+    a sh:NodeShape ;
+    sh:targetSubjectsOf :influencedBy ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "Temporal overlap required: student and teacher lifespans must overlap." ;
+        sh:select """
+            SELECT $this ?value
+            WHERE {
+                $this :influencedBy ?value .
+                $this :hasTemporalExtent ?studentTimespan .
+                ?value :hasTemporalExtent ?teacherTimespan .
+                ?studentTimespan :start ?studentStart ;
+                                :end ?studentEnd .
+                ?teacherTimespan :start ?teacherStart ;
+                                :end ?teacherEnd .
+                
+                # A violation occurs if there is NO overlap.
+                # No overlap exists if one's start is after the other's end.
+                FILTER (?studentStart > ?teacherEnd || ?teacherStart > ?studentEnd)
+            }
+            """ ;
+    ] .

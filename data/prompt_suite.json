@@ -1,0 +1,167 @@
+[
+    {
+        "id": "A1",
+        "prompt": "Was Roy Bhaskar influenced by Rom Harré?",
+        "claim": {
+            "subject": "http://dbpedia.org/resource/Roy_Bhaskar",
+            "predicate": "http://worldmind.ai/core#influencedBy",
+            "object": "http://dbpedia.org/resource/Rom_Harré"
+        },
+        "expected": "ANSWER",
+        "comment": "Valid - both lifespans overlap (Harré: 1927-2019, Bhaskar: 1944-2014)"
+    },
+    {
+        "id": "A2",
+        "prompt": "Did Derek Parfit study under Ronald Dworkin?",
+        "claim": {
+            "subject": "http://dbpedia.org/resource/Derek_Parfit",
+            "predicate": "http://worldmind.ai/core#influencedBy",
+            "object": "http://dbpedia.org/resource/Ronald_Dworkin"
+        },
+        "expected": "ANSWER",
+        "comment": "Valid - overlapping lifespans (Dworkin: 1931-2013, Parfit: 1942-2017)"
+    },
+    {
+        "id": "A3",
+        "prompt": "Was Bertrand Russell influenced by Baruch Spinoza?",
+        "claim": {
+            "subject": "http://dbpedia.org/resource/Bertrand_Russell",
+            "predicate": "http://worldmind.ai/core#influencedBy",
+            "object": "http://dbpedia.org/resource/Baruch_Spinoza"
+        },
+        "expected": "ABSTAIN",
+        "comment": "Invalid - no temporal overlap (Spinoza: 1632-1677, Russell: 1872-1970)"
+    },
+    {
+        "id": "A4",
+        "prompt": "Did Carl Gustav Hempel study under Rudolf Carnap?",
+        "claim": {
+            "subject": "http://dbpedia.org/resource/Carl_Gustav_Hempel",
+            "predicate": "http://worldmind.ai/core#influencedBy",
+            "object": "http://dbpedia.org/resource/Rudolf_Carnap"
+        },
+        "expected": "ANSWER",
+        "comment": "Valid - overlapping lifespans (Carnap: 1891-1970, Hempel: 1905-1997)"
+    },
+    {
+        "id": "B1",
+        "prompt": "Was Denis Diderot influenced by Baruch Spinoza?",
+        "claim": {
+            "subject": "http://dbpedia.org/resource/Denis_Diderot",
+            "predicate": "http://worldmind.ai/core#influencedBy",
+            "object": "http://dbpedia.org/resource/Baruch_Spinoza"
+        },
+        "expected": "ABSTAIN",
+        "comment": "Invalid - no temporal overlap (Spinoza: 1632-1677, Diderot: 1713-1784)"
+    },
+    {
+        "id": "B2",
+        "prompt": "Did Saul Kripke study under Ruth Barcan Marcus?",
+        "claim": {
+            "subject": "http://dbpedia.org/resource/Saul_Kripke",
+            "predicate": "http://worldmind.ai/core#influencedBy",
+            "object": "http://dbpedia.org/resource/Ruth_Barcan_Marcus"
+        },
+        "expected": "ANSWER",
+        "comment": "Valid - overlapping lifespans (Marcus: 1921-2012, Kripke: 1940-2022)"
+    },
+    {
+        "id": "B3",
+        "prompt": "Was Robert Nozick influenced by John Rawls?",
+        "claim": {
+            "subject": "http://dbpedia.org/resource/Robert_Nozick",
+            "predicate": "http://worldmind.ai/core#influencedBy",
+            "object": "http://dbpedia.org/resource/John_Rawls"
+        },
+        "expected": "ANSWER",
+        "comment": "Valid - overlapping lifespans (Rawls: 1921-2002, Nozick: 1938-2002)"
+    },
+    {
+        "id": "B4",
+        "prompt": "Did Bertrand Russell study under John Stuart Mill?",
+        "claim": {
+            "subject": "http://dbpedia.org/resource/Bertrand_Russell",
+            "predicate": "http://worldmind.ai/core#influencedBy",
+            "object": "http://dbpedia.org/resource/John_Stuart_Mill"
+        },
+        "expected": "ABSTAIN",
+        "comment": "Invalid - no temporal overlap (Mill: 1806-1873, Russell: 1872-1970)"
+    },
+    {
+        "id": "C1",
+        "prompt": "Was Sarah Kofman influenced by Friedrich Nietzsche?",
+        "claim": {
+            "subject": "http://dbpedia.org/resource/Sarah_Kofman",
+            "predicate": "http://worldmind.ai/core#influencedBy",
+            "object": "http://dbpedia.org/resource/Friedrich_Nietzsche"
+        },
+        "expected": "ABSTAIN",
+        "comment": "Invalid - no temporal overlap (Nietzsche: 1844-1900, Kofman: 1934-1994)"
+    },
+    {
+        "id": "C2",
+        "prompt": "Did Hubert Dreyfus study under Maurice Merleau-Ponty?",
+        "claim": {
+            "subject": "http://dbpedia.org/resource/Hubert_Dreyfus",
+            "predicate": "http://worldmind.ai/core#influencedBy",
+            "object": "http://dbpedia.org/resource/Maurice_Merleau-Ponty"
+        },
+        "expected": "ANSWER",
+        "comment": "Valid - overlapping lifespans (Merleau-Ponty: 1908-1961, Dreyfus: 1929-2017)"
+    },
+    {
+        "id": "C3",
+        "prompt": "Was Baruch Spinoza influenced by Christiaan Huygens?",
+        "claim": {
+            "subject": "http://dbpedia.org/resource/Baruch_Spinoza",
+            "predicate": "http://worldmind.ai/core#influencedBy",
+            "object": "http://dbpedia.org/resource/Christiaan_Huygens"
+        },
+        "expected": "ANSWER",
+        "comment": "Valid - overlapping lifespans (Huygens: 1629-1695, Spinoza: 1632-1677)"
+    },
+    {
+        "id": "D1",
+        "prompt": "Did Ronald Dworkin study under John Rawls?",
+        "claim": {
+            "subject": "http://dbpedia.org/resource/Ronald_Dworkin",
+            "predicate": "http://worldmind.ai/core#influencedBy",
+            "object": "http://dbpedia.org/resource/John_Rawls"
+        },
+        "expected": "ANSWER",
+        "comment": "Valid - overlapping lifespans (Rawls: 1921-2002, Dworkin: 1931-2013)"
+    },
+    {
+        "id": "D2",
+        "prompt": "Was Bernard Williams influenced by Friedrich Nietzsche?",
+        "claim": {
+            "subject": "http://dbpedia.org/resource/Bernard_Williams",
+            "predicate": "http://worldmind.ai/core#influencedBy",
+            "object": "http://dbpedia.org/resource/Friedrich_Nietzsche"
+        },
+        "expected": "ABSTAIN",
+        "comment": "Invalid - no temporal overlap (Nietzsche: 1844-1900, Williams: 1929-2003)"
+    },
+    {
+        "id": "E1",
+        "prompt": "Did Roderick Chisholm study under Donald Cary Williams?",
+        "claim": {
+            "subject": "http://dbpedia.org/resource/Roderick_Chisholm",
+            "predicate": "http://worldmind.ai/core#influencedBy",
+            "object": "http://dbpedia.org/resource/Donald_Cary_Williams"
+        },
+        "expected": "ANSWER",
+        "comment": "Valid - overlapping lifespans (Williams: 1899-1983, Chisholm: 1916-1999)"
+    },
+    {
+        "id": "E2",
+        "prompt": "Was Bertrand Russell influenced by Percy Bysshe Shelley?",
+        "claim": {
+            "subject": "http://dbpedia.org/resource/Bertrand_Russell",
+            "predicate": "http://worldmind.ai/core#influencedBy",
+            "object": "http://dbpedia.org/resource/Percy_Bysshe_Shelley"
+        },
+        "expected": "ABSTAIN",
+        "comment": "Invalid - no temporal overlap (Shelley: 1792-1822, Russell: 1872-1970)"
+    }
+]

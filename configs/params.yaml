@@ -1,0 +1,12 @@
+# File paths for the experiment
+data:
+  raw_csv: "data/raw_philosophers.csv"
+  knowledge_graph: "data/knowledge_graph.ttl"
+  prompt_suite: "data/prompt_suite.json"
+
+ontology:
+  core: "ontology/worldmind_core.ttl"
+  constraints: "ontology/worldmind_constraints.shacl.ttl"
+
+artifacts:
+  eval_results: "artifacts/prompt_eval.json"
