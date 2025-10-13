@@ -1,8 +1,13 @@
 from rdflib import Graph
 from pyshacl import validate
+import os
 
-DATA_GRAPH_PATH = "data/knowledge_graph.ttl"
-SHACL_GRAPH_PATH = "ontology/worldmind_constraints.shacl.ttl"
+# Determine paths relative to this script
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+EXPERIMENT_DIR = os.path.dirname(SCRIPT_DIR)
+
+DATA_GRAPH_PATH = os.path.join(EXPERIMENT_DIR, "data", "knowledge_graph.ttl")
+SHACL_GRAPH_PATH = os.path.join(EXPERIMENT_DIR, "ontology", "worldmind_constraints.shacl.ttl")
 
 
 def validate_knowledge_graph():
@@ -30,3 +35,4 @@ def validate_knowledge_graph():
 
 if __name__ == "__main__":
     validate_knowledge_graph()
+

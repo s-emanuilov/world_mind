@@ -19,3 +19,4 @@ class GraphStore:
     def get_graph(self) -> Graph:
         """Returns the loaded RDF graph."""
         return self.graph
+

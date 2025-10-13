@@ -1,10 +1,15 @@
 import pandas as pd
 from rdflib import Graph, URIRef, Literal, Namespace
 from rdflib.namespace import RDF, RDFS, XSD
+import os
 
-INPUT_PATH = "data/raw_philosophers.csv"
-OUTPUT_PATH = "data/knowledge_graph.ttl"
-ONTOLOGY_PATH = "ontology/worldmind_core.ttl"
+# Determine paths relative to this script
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+EXPERIMENT_DIR = os.path.dirname(SCRIPT_DIR)
+
+INPUT_PATH = os.path.join(EXPERIMENT_DIR, "data", "raw_philosophers.csv")
+OUTPUT_PATH = os.path.join(EXPERIMENT_DIR, "data", "knowledge_graph.ttl")
+ONTOLOGY_PATH = os.path.join(EXPERIMENT_DIR, "ontology", "worldmind_core.ttl")
 
 # Define namespaces
 WM = Namespace("http://worldmind.ai/core#")
@@ -63,3 +68,4 @@ def create_knowledge_graph():
 
 if __name__ == "__main__":
     create_knowledge_graph()
+

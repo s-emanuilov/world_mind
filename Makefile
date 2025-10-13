@@ -1,24 +1,19 @@
-.PHONY: all data build validate test clean
+.PHONY: help poc1 clean-all
 
-# Default command to run the main steps
-all: data build validate test
+# Default target shows available commands
+help:
+	@echo "WorldMind Project - Available Commands:"
+	@echo ""
+	@echo "  make poc1           - Run POC1 (Philosophers experiment)"
+	@echo "  make clean-all      - Clean all experiment artifacts"
+	@echo ""
+	@echo "To work with a specific experiment, cd into its directory:"
+	@echo "  cd experiments/poc1_philosophers && make all"
 
-# Fetches the raw data from DBpedia
-data:
-	python -m scripts.get_data
+# Quick access to POC1
+poc1:
+	cd experiments/poc1_philosophers && $(MAKE) all
 
-# Builds the knowledge graph from the raw data
-build:
-	python -m scripts.build_graph
-
-# Validates the knowledge graph against SHACL constraints
-validate:
-	python -m scripts.validate_graph
-
-# Runs the canonical prompt suite for evaluation
-test:
-	python -m scripts.eval_prompts
-
-# Removes generated artifacts
-clean:
-	rm -rf artifacts/* data/raw_philosophers.csv data/knowledge_graph.ttl
+# Clean all experiments
+clean-all:
+	cd experiments/poc1_philosophers && $(MAKE) clean

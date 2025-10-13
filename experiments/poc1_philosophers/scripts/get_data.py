@@ -1,9 +1,14 @@
 import requests
 import pandas as pd
 from io import StringIO
+import os
 
 DBPEDIA_ENDPOINT = "https://dbpedia.org/sparql"
-OUTPUT_PATH = "data/raw_philosophers.csv"
+
+# Determine paths relative to this script
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+EXPERIMENT_DIR = os.path.dirname(SCRIPT_DIR)
+OUTPUT_PATH = os.path.join(EXPERIMENT_DIR, "data", "raw_philosophers.csv")
 
 # The query designed to get a high-quality dataset for the experiment
 SPARQL_QUERY = """
@@ -66,3 +71,4 @@ def fetch_dbpedia_data():
 
 if __name__ == "__main__":
     fetch_dbpedia_data()
+
