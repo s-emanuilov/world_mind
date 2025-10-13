@@ -11,6 +11,8 @@
         a sh:SPARQLConstraint ;
         sh:message "Temporal overlap required: student and teacher lifespans must overlap." ;
         sh:select """
+            PREFIX : <http://worldmind.ai/core#>
+            
             SELECT $this ?value
             WHERE {
                 $this :influencedBy ?value .
