@@ -1,0 +1,67 @@
+@prefix : <http://worldmind.ai/battles#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# Core Ontology for Military Battles Experiment
+
+# Classes
+:Agent a owl:Class ;
+    rdfs:label "Agent" ;
+    rdfs:comment "A person, typically a military commander" .
+
+:Battle a owl:Class ;
+    rdfs:label "Battle" ;
+    rdfs:comment "A military conflict or battle" .
+
+:Country a owl:Class ;
+    rdfs:label "Country" ;
+    rdfs:comment "A nation or political entity" .
+
+:TimeSpan a owl:Class ;
+    rdfs:label "TimeSpan" ;
+    rdfs:comment "A temporal extent with start and end points" .
+
+# Properties
+:hasCommander a owl:ObjectProperty ;
+    rdfs:label "has commander" ;
+    rdfs:comment "Relates a battle to one of its commanders" ;
+    rdfs:domain :Battle ;
+    rdfs:range :Agent .
+
+:hasCombatant a owl:ObjectProperty ;
+    rdfs:label "has combatant" ;
+    rdfs:comment "Relates a battle to a combatant country" ;
+    rdfs:domain :Battle ;
+    rdfs:range :Country .
+
+:hasNationality a owl:ObjectProperty ;
+    rdfs:label "has nationality" ;
+    rdfs:comment "Relates a commander to their country" ;
+    rdfs:domain :Agent ;
+    rdfs:range :Country .
+
+:hasTemporalExtent a owl:ObjectProperty ;
+    rdfs:label "has temporal extent" ;
+    rdfs:comment "Relates an entity to its temporal span" ;
+    rdfs:range :TimeSpan .
+
+:occurredOn a owl:DatatypeProperty ;
+    rdfs:label "occurred on" ;
+    rdfs:comment "The date when a battle occurred" ;
+    rdfs:domain :Battle ;
+    rdfs:range xsd:date .
+
+:start a owl:DatatypeProperty ;
+    rdfs:label "start" ;
+    rdfs:comment "Start date of a timespan" ;
+    rdfs:domain :TimeSpan ;
+    rdfs:range xsd:date .
+
+:end a owl:DatatypeProperty ;
+    rdfs:label "end" ;
+    rdfs:comment "End date of a timespan" ;
+    rdfs:domain :TimeSpan ;
+    rdfs:range xsd:date .
+

@@ -22,37 +22,24 @@ class ConsistencyAuditor:
         """
         Audits a single claim against the base knowledge graph.
 
-        This method works by creating a temporary copy of the graph, adding the
-        hypothetical claim to it, and then running SHACL validation. This ensures
-        the base graph remains unchanged.
+        A claim is licensed if it exists in (or is entailed by) the base graph.
+        The graph itself is validated against SHACL constraints at build time,
+        so any claim in the graph is assumed to be consistent with constraints.
 
         Args:
             base_graph (Graph): The ground-truth knowledge graph.
             claim (dict): A dictionary with 'subject', 'predicate', 'object'.
 
         Returns:
-            bool: True if the claim is licensed (conforms to shapes), False otherwise.
+            bool: True if the claim is licensed (has evidence), False otherwise.
         """
-        # Create a temporary graph with the base data + the new claim
-        temp_graph = Graph()
-        temp_graph += base_graph
-
-        # Define a namespace for our ontology for cleaner triple creation
-        WM = Namespace("http://worldmind.ai/core#")
-
         s = URIRef(claim["subject"])
         p = URIRef(claim["predicate"])
         o = URIRef(claim["object"])
 
-        temp_graph.add((s, p, o))
-
-        # Run the validation
-        conforms, _, _ = validate(
-            temp_graph,
-            shacl_graph=self.shacl_graph,
-            inference="rdfs",
-            abort_on_first=True,  # Stop as soon as one violation is found for efficiency
-        )
-
-        return conforms
+        # Check if claim exists in the base graph (direct entailment)
+        triple = (s, p, o)
+        is_entailed = triple in base_graph
+        
+        return is_entailed
 

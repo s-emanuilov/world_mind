@@ -75,6 +75,11 @@ Tests truth-constrained generation on philosophical influence relationships with
 
 See [experiments/poc1_philosophers/README.md](experiments/poc1_philosophers/README.md) for details.
 
+### POC2: Military Battles
+Tests truth-constrained generation on military battles and commanders with temporal and nationality constraints. Demonstrates multi-hop reasoning across Battle → Commander → Country relationships.
+
+See [experiments/poc2_battles/README.md](experiments/poc2_battles/README.md) for details.
+
 ## Research Contribution
 
 **Graph-Licensed Abstention**: A novel LLM architecture where abstention is not a failure mode but a principled response when claims lack evidence or violate formal constraints.

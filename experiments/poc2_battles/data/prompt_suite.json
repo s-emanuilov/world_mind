@@ -1,0 +1,332 @@
+[
+  {
+    "id": "T1",
+    "prompt": "Did Minamoto no Yoritomo command at the Heiji rebellion?",
+    "claim": {
+      "subject": "http://dbpedia.org/resource/Heiji_rebellion",
+      "predicate": "http://worldmind.ai/battles#hasCommander",
+      "object": "http://dbpedia.org/resource/Minamoto_no_Yoritomo"
+    },
+    "expected": "ANSWER",
+    "category": "temporal_valid"
+  },
+  {
+    "id": "T2",
+    "prompt": "Did William FitzRobert, 2nd Earl of Gloucester command at the Revolt of 1173\u20131174?",
+    "claim": {
+      "subject": "http://dbpedia.org/resource/Revolt_of_1173\u20131174",
+      "predicate": "http://worldmind.ai/battles#hasCommander",
+      "object": "http://dbpedia.org/resource/William_FitzRobert,_2nd_Earl_of_Gloucester"
+    },
+    "expected": "ANSWER",
+    "category": "temporal_valid"
+  },
+  {
+    "id": "T3",
+    "prompt": "Did Minamoto no Yoritomo command at the Battle of Ishibashiyama?",
+    "claim": {
+      "subject": "http://dbpedia.org/resource/Battle_of_Ishibashiyama",
+      "predicate": "http://worldmind.ai/battles#hasCommander",
+      "object": "http://dbpedia.org/resource/Minamoto_no_Yoritomo"
+    },
+    "expected": "ANSWER",
+    "category": "temporal_valid"
+  },
+  {
+    "id": "T4",
+    "prompt": "Did Minamoto no Yoritomo command at the Battle of Fujigawa?",
+    "claim": {
+      "subject": "http://dbpedia.org/resource/Battle_of_Fujigawa",
+      "predicate": "http://worldmind.ai/battles#hasCommander",
+      "object": "http://dbpedia.org/resource/Minamoto_no_Yoritomo"
+    },
+    "expected": "ANSWER",
+    "category": "temporal_valid"
+  },
+  {
+    "id": "T5",
+    "prompt": "Did Henry II, Count of Champagne command at the Third Crusade?",
+    "claim": {
+      "subject": "http://dbpedia.org/resource/Third_Crusade",
+      "predicate": "http://worldmind.ai/battles#hasCommander",
+      "object": "http://dbpedia.org/resource/Henry_II,_Count_of_Champagne"
+    },
+    "expected": "ANSWER",
+    "category": "temporal_valid"
+  },
+  {
+    "id": "T6",
+    "prompt": "Did Minamoto no Yoritomo command at the Mongol conquest of the Song dynasty?",
+    "claim": {
+      "subject": "http://dbpedia.org/resource/Mongol_conquest_of_the_Song_dynasty",
+      "predicate": "http://worldmind.ai/battles#hasCommander",
+      "object": "http://dbpedia.org/resource/Minamoto_no_Yoritomo"
+    },
+    "expected": "ABSTAIN",
+    "category": "temporal_invalid_dead_before_battle"
+  },
+  {
+    "id": "T7",
+    "prompt": "Did William FitzRobert, 2nd Earl of Gloucester command at the Third Crusade?",
+    "claim": {
+      "subject": "http://dbpedia.org/resource/Third_Crusade",
+      "predicate": "http://worldmind.ai/battles#hasCommander",
+      "object": "http://dbpedia.org/resource/William_FitzRobert,_2nd_Earl_of_Gloucester"
+    },
+    "expected": "ABSTAIN",
+    "category": "temporal_invalid_dead_before_battle"
+  },
+  {
+    "id": "T8",
+    "prompt": "Did Minamoto no Yoritomo command at the Mongol conquest of the Song dynasty?",
+    "claim": {
+      "subject": "http://dbpedia.org/resource/Mongol_conquest_of_the_Song_dynasty",
+      "predicate": "http://worldmind.ai/battles#hasCommander",
+      "object": "http://dbpedia.org/resource/Minamoto_no_Yoritomo"
+    },
+    "expected": "ABSTAIN",
+    "category": "temporal_invalid_dead_before_battle"
+  },
+  {
+    "id": "T9",
+    "prompt": "Did Minamoto no Yoritomo command at the Battle of Lewes?",
+    "claim": {
+      "subject": "http://dbpedia.org/resource/Battle_of_Lewes",
+      "predicate": "http://worldmind.ai/battles#hasCommander",
+      "object": "http://dbpedia.org/resource/Minamoto_no_Yoritomo"
+    },
+    "expected": "ABSTAIN",
+    "category": "not_in_graph"
+  },
+  {
+    "id": "N1",
+    "prompt": "Did Minamoto no Yoritomo (a commander from their country) lead at the Battle of \u014csh\u016b?",
+    "claim": {
+      "subject": "http://dbpedia.org/resource/Battle_of_\u014csh\u016b",
+      "predicate": "http://worldmind.ai/battles#hasCommander",
+      "object": "http://dbpedia.org/resource/Minamoto_no_Yoritomo"
+    },
+    "expected": "ANSWER",
+    "category": "multi_hop_nationality_valid"
+  },
+  {
+    "id": "N2",
+    "prompt": "Did Zbigniew Ole\u015bnicki (cardinal) (a commander from their country) lead at the Hussite Wars?",
+    "claim": {
+      "subject": "http://dbpedia.org/resource/Hussite_Wars",
+      "predicate": "http://worldmind.ai/battles#hasCommander",
+      "object": "http://dbpedia.org/resource/Zbigniew_Ole\u015bnicki_(cardinal)"
+    },
+    "expected": "ANSWER",
+    "category": "multi_hop_nationality_valid"
+  },
+  {
+    "id": "N3",
+    "prompt": "Did Yang Yiqing (a commander from their country) lead at the Prince of Anhua rebellion?",
+    "claim": {
+      "subject": "http://dbpedia.org/resource/Prince_of_Anhua_rebellion",
+      "predicate": "http://worldmind.ai/battles#hasCommander",
+      "object": "http://dbpedia.org/resource/Yang_Yiqing"
+    },
+    "expected": "ANSWER",
+    "category": "multi_hop_nationality_valid"
+  },
+  {
+    "id": "N4",
+    "prompt": "Did Oda Nobunaga (a commander from their country) lead at the Battle of Akatsuka?",
+    "claim": {
+      "subject": "http://dbpedia.org/resource/Battle_of_Akatsuka",
+      "predicate": "http://worldmind.ai/battles#hasCommander",
+      "object": "http://dbpedia.org/resource/Oda_Nobunaga"
+    },
+    "expected": "ANSWER",
+    "category": "multi_hop_nationality_valid"
+  },
+  {
+    "id": "N5",
+    "prompt": "Did Oda Nobunaga (a commander from their country) lead at the Battle of Muraki Castle?",
+    "claim": {
+      "subject": "http://dbpedia.org/resource/Battle_of_Muraki_Castle",
+      "predicate": "http://worldmind.ai/battles#hasCommander",
+      "object": "http://dbpedia.org/resource/Oda_Nobunaga"
+    },
+    "expected": "ANSWER",
+    "category": "multi_hop_nationality_valid"
+  },
+  {
+    "id": "CB1",
+    "prompt": "Was Minamoto no Yoritomo a commander at the Heiji rebellion?",
+    "claim": {
+      "subject": "http://dbpedia.org/resource/Heiji_rebellion",
+      "predicate": "http://worldmind.ai/battles#hasCommander",
+      "object": "http://dbpedia.org/resource/Minamoto_no_Yoritomo"
+    },
+    "expected": "ANSWER",
+    "category": "cross_battle_valid"
+  },
+  {
+    "id": "CB2",
+    "prompt": "Was Minamoto no Yoritomo also a commander at the Battle of Ishibashiyama?",
+    "claim": {
+      "subject": "http://dbpedia.org/resource/Battle_of_Ishibashiyama",
+      "predicate": "http://worldmind.ai/battles#hasCommander",
+      "object": "http://dbpedia.org/resource/Minamoto_no_Yoritomo"
+    },
+    "expected": "ANSWER",
+    "category": "cross_battle_valid"
+  },
+  {
+    "id": "CB3",
+    "prompt": "Was Henry II, Count of Champagne a commander at the Third Crusade?",
+    "claim": {
+      "subject": "http://dbpedia.org/resource/Third_Crusade",
+      "predicate": "http://worldmind.ai/battles#hasCommander",
+      "object": "http://dbpedia.org/resource/Henry_II,_Count_of_Champagne"
+    },
+    "expected": "ANSWER",
+    "category": "cross_battle_valid"
+  },
+  {
+    "id": "CB4",
+    "prompt": "Was Henry II, Count of Champagne also a commander at the Battle of Arsuf?",
+    "claim": {
+      "subject": "http://dbpedia.org/resource/Battle_of_Arsuf",
+      "predicate": "http://worldmind.ai/battles#hasCommander",
+      "object": "http://dbpedia.org/resource/Henry_II,_Count_of_Champagne"
+    },
+    "expected": "ANSWER",
+    "category": "cross_battle_valid"
+  },
+  {
+    "id": "CB5",
+    "prompt": "Was Roger Mortimer, 1st Earl of March a commander at the Bruce campaign in Ireland?",
+    "claim": {
+      "subject": "http://dbpedia.org/resource/Bruce_campaign_in_Ireland",
+      "predicate": "http://worldmind.ai/battles#hasCommander",
+      "object": "http://dbpedia.org/resource/Roger_Mortimer,_1st_Earl_of_March"
+    },
+    "expected": "ANSWER",
+    "category": "cross_battle_valid"
+  },
+  {
+    "id": "CB6",
+    "prompt": "Was Roger Mortimer, 1st Earl of March also a commander at the Despenser War?",
+    "claim": {
+      "subject": "http://dbpedia.org/resource/Despenser_War",
+      "predicate": "http://worldmind.ai/battles#hasCommander",
+      "object": "http://dbpedia.org/resource/Roger_Mortimer,_1st_Earl_of_March"
+    },
+    "expected": "ANSWER",
+    "category": "cross_battle_valid"
+  },
+  {
+    "id": "AL1",
+    "prompt": "Did Minamoto no Yoritomo command at the Revolt of 1173\u20131174?",
+    "claim": {
+      "subject": "http://dbpedia.org/resource/Revolt_of_1173\u20131174",
+      "predicate": "http://worldmind.ai/battles#hasCommander",
+      "object": "http://dbpedia.org/resource/Minamoto_no_Yoritomo"
+    },
+    "expected": "ABSTAIN",
+    "category": "alive_but_no_command"
+  },
+  {
+    "id": "AL2",
+    "prompt": "Did Minamoto no Yoritomo command at the Third Crusade?",
+    "claim": {
+      "subject": "http://dbpedia.org/resource/Third_Crusade",
+      "predicate": "http://worldmind.ai/battles#hasCommander",
+      "object": "http://dbpedia.org/resource/Minamoto_no_Yoritomo"
+    },
+    "expected": "ABSTAIN",
+    "category": "alive_but_no_command"
+  },
+  {
+    "id": "AL3",
+    "prompt": "Did Minamoto no Yoritomo command at the Battle of Arsuf?",
+    "claim": {
+      "subject": "http://dbpedia.org/resource/Battle_of_Arsuf",
+      "predicate": "http://worldmind.ai/battles#hasCommander",
+      "object": "http://dbpedia.org/resource/Minamoto_no_Yoritomo"
+    },
+    "expected": "ABSTAIN",
+    "category": "alive_but_no_command"
+  },
+  {
+    "id": "AL4",
+    "prompt": "Did William FitzRobert, 2nd Earl of Gloucester command at the Heiji rebellion?",
+    "claim": {
+      "subject": "http://dbpedia.org/resource/Heiji_rebellion",
+      "predicate": "http://worldmind.ai/battles#hasCommander",
+      "object": "http://dbpedia.org/resource/William_FitzRobert,_2nd_Earl_of_Gloucester"
+    },
+    "expected": "ABSTAIN",
+    "category": "alive_but_no_command"
+  },
+  {
+    "id": "AL5",
+    "prompt": "Did William FitzRobert, 2nd Earl of Gloucester command at the Battle of Ishibashiyama?",
+    "claim": {
+      "subject": "http://dbpedia.org/resource/Battle_of_Ishibashiyama",
+      "predicate": "http://worldmind.ai/battles#hasCommander",
+      "object": "http://dbpedia.org/resource/William_FitzRobert,_2nd_Earl_of_Gloucester"
+    },
+    "expected": "ABSTAIN",
+    "category": "alive_but_no_command"
+  },
+  {
+    "id": "NC1",
+    "prompt": "Did Minamoto no Yoritomo (whose country was a combatant) command at the Battle of Akatsuka?",
+    "claim": {
+      "subject": "http://dbpedia.org/resource/Battle_of_Akatsuka",
+      "predicate": "http://worldmind.ai/battles#hasCommander",
+      "object": "http://dbpedia.org/resource/Minamoto_no_Yoritomo"
+    },
+    "expected": "ABSTAIN",
+    "category": "nationality_matches_but_no_command"
+  },
+  {
+    "id": "NC2",
+    "prompt": "Did Minamoto no Yoritomo (whose country was a combatant) command at the Battle of Muraki Castle?",
+    "claim": {
+      "subject": "http://dbpedia.org/resource/Battle_of_Muraki_Castle",
+      "predicate": "http://worldmind.ai/battles#hasCommander",
+      "object": "http://dbpedia.org/resource/Minamoto_no_Yoritomo"
+    },
+    "expected": "ABSTAIN",
+    "category": "nationality_matches_but_no_command"
+  },
+  {
+    "id": "NC3",
+    "prompt": "Did Minamoto no Yoritomo (whose country was a combatant) command at the Battle of In\u014d?",
+    "claim": {
+      "subject": "http://dbpedia.org/resource/Battle_of_In\u014d",
+      "predicate": "http://worldmind.ai/battles#hasCommander",
+      "object": "http://dbpedia.org/resource/Minamoto_no_Yoritomo"
+    },
+    "expected": "ABSTAIN",
+    "category": "nationality_matches_but_no_command"
+  },
+  {
+    "id": "NC4",
+    "prompt": "Did Minamoto no Yoritomo (whose country was a combatant) command at the Battle of In\u014d?",
+    "claim": {
+      "subject": "http://dbpedia.org/resource/Battle_of_In\u014d",
+      "predicate": "http://worldmind.ai/battles#hasCommander",
+      "object": "http://dbpedia.org/resource/Minamoto_no_Yoritomo"
+    },
+    "expected": "ABSTAIN",
+    "category": "nationality_matches_but_no_command"
+  },
+  {
+    "id": "NC5",
+    "prompt": "Did Minamoto no Yoritomo (whose country was a combatant) command at the Battle of In\u014d?",
+    "claim": {
+      "subject": "http://dbpedia.org/resource/Battle_of_In\u014d",
+      "predicate": "http://worldmind.ai/battles#hasCommander",
+      "object": "http://dbpedia.org/resource/Minamoto_no_Yoritomo"
+    },
+    "expected": "ABSTAIN",
+    "category": "nationality_matches_but_no_command"
+  }
+]

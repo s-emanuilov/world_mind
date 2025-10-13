@@ -1,0 +1,54 @@
+@prefix : <http://worldmind.ai/battles#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# SHACL Constraints for Military Battles
+
+# Constraint 1: Commander must be alive during the battle
+:CommanderTemporalOverlapShape
+    a sh:NodeShape ;
+    sh:targetSubjectsOf :hasCommander ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "Commander must be alive during the battle" ;
+        sh:select """
+            PREFIX : <http://worldmind.ai/battles#>
+            
+            SELECT $this ?commander
+            WHERE {
+                $this :hasCommander ?commander .
+                $this :occurredOn ?battleDate .
+                ?commander :hasTemporalExtent ?lifespan .
+                ?lifespan :start ?birthDate ;
+                         :end ?deathDate .
+                
+                # Violation: battle date is outside commander's lifespan
+                FILTER (?battleDate < ?birthDate || ?battleDate > ?deathDate)
+            }
+            """ ;
+    ] .
+
+# Constraint 2: Commander's nationality must match a combatant country in the battle
+:CommanderNationalityAlignmentShape
+    a sh:NodeShape ;
+    sh:targetSubjectsOf :hasCommander ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "Commander's nationality must match a combatant country in the battle" ;
+        sh:select """
+            PREFIX : <http://worldmind.ai/battles#>
+            
+            SELECT $this ?commander
+            WHERE {
+                $this :hasCommander ?commander .
+                ?commander :hasNationality ?commanderCountry .
+                
+                # Violation: commander's country is not among the battle's combatants
+                FILTER NOT EXISTS {
+                    $this :hasCombatant ?commanderCountry .
+                }
+            }
+            """ ;
+    ] .
+
