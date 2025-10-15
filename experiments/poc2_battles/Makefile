@@ -1,7 +1,7 @@
-.PHONY: all data build validate prompts test clean
+.PHONY: all data build validate generate-answers eval-answers clean
 
 # Default command to run the main steps
-all: data build validate test
+all: data build validate generate-answers eval-answers
 
 # Fetches the raw data from DBpedia
 data:
@@ -15,13 +15,13 @@ build:
 validate:
 	python scripts/validate_graph.py
 
-# Generates test prompts from actual graph data
-prompts:
+# Generates test answers from actual graph data
+generate-answers:
 	python scripts/generate_prompts.py
 
-# Runs the canonical prompt suite for evaluation
-test:
-	python scripts/eval_prompts.py
+# Runs the canonical answer suite for evaluation
+eval-answers:
+	python scripts/eval_answers.py
 
 # Removes generated artifacts
 clean:

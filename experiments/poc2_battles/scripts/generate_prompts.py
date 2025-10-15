@@ -18,7 +18,7 @@ WM = Namespace('http://worldmind.ai/battles#')
 
 
 def generate_prompt_suite():
-    """Generate test prompts from actual graph data."""
+    """Generate test answers from actual graph data."""
     
     print("Loading knowledge graph...")
     g = Graph()
@@ -62,7 +62,7 @@ def generate_prompt_suite():
     for i, rel in enumerate(relationships[:5]):  # Take first 5
         prompts.append({
             "id": f"T{i+1}",
-            "prompt": f"Did {rel['commander_label']} command at the {rel['battle_label']}?",
+            "answer": f"{rel['commander_label']} commanded at the {rel['battle_label']}.",
             "claim": {
                 "subject": rel['battle_uri'],
                 "predicate": "http://worldmind.ai/battles#hasCommander",
@@ -86,7 +86,7 @@ def generate_prompt_suite():
                     if death1 < battle2:
                         prompts.append({
                             "id": f"T{len(prompts)+1}",
-                            "prompt": f"Did {rel1['commander_label']} command at the {rel2['battle_label']}?",
+                            "answer": f"{rel1['commander_label']} commanded at the {rel2['battle_label']}.",
                             "claim": {
                                 "subject": rel2['battle_uri'],
                                 "predicate": "http://worldmind.ai/battles#hasCommander",
@@ -107,7 +107,7 @@ def generate_prompt_suite():
         # Mix commanders and battles that don't go together
         prompts.append({
             "id": f"T{len(prompts)+1}",
-            "prompt": f"Did {relationships[0]['commander_label']} command at the {relationships[9]['battle_label']}?",
+            "answer": f"{relationships[0]['commander_label']} commanded at the {relationships[9]['battle_label']}.",
             "claim": {
                 "subject": relationships[9]['battle_uri'],
                 "predicate": "http://worldmind.ai/battles#hasCommander",
@@ -144,7 +144,7 @@ def generate_prompt_suite():
         if country_uri in combatants:
             prompts.append({
                 "id": f"N{n_count+1}",
-                "prompt": f"Did {rel['commander_label']} (a commander from their country) lead at the {rel['battle_label']}?",
+                "answer": f"{rel['commander_label']} (a commander from their country) led at the {rel['battle_label']}.",
                 "claim": {
                     "subject": rel['battle_uri'],
                     "predicate": "http://worldmind.ai/battles#hasCommander",
@@ -168,7 +168,7 @@ def generate_prompt_suite():
         if country_uri not in combatants:
             prompts.append({
                 "id": f"NM{nm_count+1}",
-                "prompt": f"Did {rel['commander_label']} (whose nationality did not participate) command at the {rel['battle_label']}?",
+                "answer": f"{rel['commander_label']} (whose nationality did not participate) commanded at the {rel['battle_label']}.",
                 "claim": {
                     "subject": rel['battle_uri'],
                     "predicate": "http://worldmind.ai/battles#hasCommander",
@@ -200,7 +200,7 @@ def generate_prompt_suite():
             # Valid: commander at battle 1
             prompts.append({
                 "id": f"CB{cb_count*2+1}",
-                "prompt": f"Was {commander_label} a commander at the {b1_label}?",
+                "answer": f"{commander_label} was a commander at the {b1_label}.",
                 "claim": {
                     "subject": b1_uri,
                     "predicate": "http://worldmind.ai/battles#hasCommander",
@@ -212,7 +212,7 @@ def generate_prompt_suite():
             # Valid: commander at battle 2
             prompts.append({
                 "id": f"CB{cb_count*2+2}",
-                "prompt": f"Was {commander_label} also a commander at the {b2_label}?",
+                "answer": f"{commander_label} was also a commander at the {b2_label}.",
                 "claim": {
                     "subject": b2_uri,
                     "predicate": "http://worldmind.ai/battles#hasCommander",
@@ -262,7 +262,7 @@ def generate_prompt_suite():
                 if triple_absent:
                     prompts.append({
                         "id": f"AL{alive_no_cmd_count+1}",
-                        "prompt": f"Did {rel_c['commander_label']} command at the {rel_b['battle_label']}?",
+                        "answer": f"{rel_c['commander_label']} commanded at the {rel_b['battle_label']}.",
                         "claim": {
                             "subject": rel_b['battle_uri'],
                             "predicate": "http://worldmind.ai/battles#hasCommander",
@@ -298,7 +298,7 @@ def generate_prompt_suite():
                 if triple_absent:
                     prompts.append({
                         "id": f"NC{nat_no_cmd_count+1}",
-                        "prompt": f"Did {rel['commander_label']} (whose country was a combatant) command at the {rel_b['battle_label']}?",
+                        "answer": f"{rel['commander_label']} (whose country was a combatant) commanded at the {rel_b['battle_label']}.",
                         "claim": {
                             "subject": rel_b['battle_uri'],
                             "predicate": "http://worldmind.ai/battles#hasCommander",
@@ -333,7 +333,7 @@ def generate_prompt_suite():
     # Print a few examples
     print("\nSample prompts:")
     for p in prompts[:3]:
-        print(f"  [{p['id']}] {p['prompt']} → {p['expected']}")
+        print(f"  [{p['id']}] {p['answer']} → {p['expected']}")
 
 
 if __name__ == "__main__":
