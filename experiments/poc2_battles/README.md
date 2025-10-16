@@ -45,8 +45,8 @@ make validate
 # Generate test prompts from actual graph data
 make prompts
 
-# Run evaluation
-make test
+# Run evaluation (rule name changed to be explicit)
+make eval-answers
 
 # Clean generated files
 make clean
@@ -64,6 +64,9 @@ make all
 - **scripts/build_graph.py**: Constructs RDF knowledge graph from raw data
 - **scripts/validate_graph.py**: Validates graph against SHACL constraints
 - **scripts/eval_prompts.py**: Evaluates the abstention policy against test prompts
+ - **scripts/generate_llm_answers.py**: Calls OpenRouter to answer prompts with a chosen LLM
+ - **scripts/extract_claims.py**: Uses a fast LLM to extract verifiable claims from answers
+ - **scripts/verify_claims.py**: Verifies extracted claims against the knowledge graph
 
 ## Ontology
 
