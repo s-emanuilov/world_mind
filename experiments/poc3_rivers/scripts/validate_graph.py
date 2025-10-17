@@ -1,0 +1,38 @@
+from rdflib import Graph
+from pyshacl import validate
+import os
+
+# Determine paths relative to this script
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+EXPERIMENT_DIR = os.path.dirname(SCRIPT_DIR)
+
+DATA_GRAPH_PATH = os.path.join(EXPERIMENT_DIR, "data", "knowledge_graph.ttl")
+SHACL_GRAPH_PATH = os.path.join(EXPERIMENT_DIR, "ontology", "worldmind_constraints.shacl.ttl")
+
+
+def validate_knowledge_graph():
+    """Validates the data graph against the SHACL shapes."""
+    try:
+        data_graph = Graph().parse(DATA_GRAPH_PATH, format="turtle")
+        shacl_graph = Graph().parse(SHACL_GRAPH_PATH, format="turtle")
+    except FileNotFoundError as e:
+        print(f"Error: Could not find a required file: {e}. Run 'make build' first.")
+        return
+
+    print("Running SHACL validation...")
+
+    conforms, results_graph, results_text = validate(
+        data_graph, shacl_graph=shacl_graph, inference="rdfs", abort_on_first=False
+    )
+
+    print("\n--- Validation Report ---")
+    if conforms:
+        print("✅ Graph is conformant. No constraint violations found.")
+    else:
+        print("❌ Graph is NOT conformant. Violations found:")
+        print(results_text)
+
+
+if __name__ == "__main__":
+    validate_knowledge_graph()
+

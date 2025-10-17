@@ -1,0 +1,54 @@
+@prefix : <http://worldmind.ai/rivers#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# SHACL Constraints for US Rivers (geographic consistency)
+
+# Constraint 1: Tributaries must be rivers
+:TributaryTypeShape
+    a sh:NodeShape ;
+    sh:targetObjectsOf :hasTributary ;
+    sh:property [
+        sh:path rdf:type ;
+        sh:hasValue :River ;
+        sh:message "Objects of :hasTributary must be instances of :River" ;
+    ] .
+
+# Constraint 2: Rivers in US should have either a state or mouth/source in US
+:USRiverCoverageShape
+    a sh:NodeShape ;
+    sh:targetClass :River ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "US rivers should have at least one of (:traverses state, :hasMouth in US, :hasSource in US)" ;
+        sh:select """
+            PREFIX : <http://worldmind.ai/rivers#>
+            PREFIX dbr: <http://dbpedia.org/resource/>
+            
+            SELECT $this WHERE {
+                $this :inCountry dbr:United_States .
+                FILTER NOT EXISTS { $this :traverses ?state }
+                FILTER NOT EXISTS { $this :hasMouth ?mouth }
+                FILTER NOT EXISTS { $this :hasSource ?source }
+            }
+        """ ;
+    ] .
+
+# Constraint 3: Basic domain/range sanity checks
+:RiverLengthShape
+    a sh:NodeShape ;
+    sh:targetClass :River ;
+    sh:property [
+        sh:path :length ;
+        sh:datatype xsd:double ;
+        sh:minCount 0 ;
+        sh:message ":length must be a number (double) if present" ;
+    ] ;
+    sh:property [
+        sh:path :discharge ;
+        sh:datatype xsd:double ;
+        sh:minCount 0 ;
+        sh:message ":discharge must be a number (double) if present" ;
+    ] .
+

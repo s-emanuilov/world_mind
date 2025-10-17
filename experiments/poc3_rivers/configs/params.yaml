@@ -1,0 +1,15 @@
+# Configuration for POC2: Military Battles Experiment
+# All paths are relative to the experiment directory
+
+data:
+  raw_csv: "data/raw_rivers.csv"
+  knowledge_graph: "data/knowledge_graph.ttl"
+  prompt_suite: "data/prompt_suite.json"
+
+ontology:
+  core: "ontology/worldmind_core.ttl"
+  constraints: "ontology/worldmind_constraints.shacl.ttl"
+
+artifacts:
+  eval_results: "artifacts/prompt_eval.json"
+

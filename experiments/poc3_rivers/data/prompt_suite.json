@@ -1,0 +1,79 @@
+[
+  {
+    "id": "TRX1",
+    "answer": "Whetstone River is a tributary of Bear Creek (Rocky Fork Creek tributary).",
+    "claim": {
+      "subject": "http://dbpedia.org/resource/Bear_Creek_(Rocky_Fork_Creek_tributary)",
+      "predicate": "http://worldmind.ai/rivers#hasTributary",
+      "object": "http://dbpedia.org/resource/Whetstone_River"
+    },
+    "expected": "ABSTAIN",
+    "category": "tributary_invalid_not_in_graph"
+  },
+  {
+    "id": "MTH1",
+    "answer": "The mouth of Escanaba River is Lake Michigan.",
+    "claim": {
+      "subject": "http://dbpedia.org/resource/Escanaba_River",
+      "predicate": "http://worldmind.ai/rivers#hasMouth",
+      "object": "http://dbpedia.org/resource/Lake_Michigan"
+    },
+    "expected": "ANSWER",
+    "category": "mouth_valid"
+  },
+  {
+    "id": "MTH2",
+    "answer": "The mouth of Glen Cove Creek is Hempstead Harbor.",
+    "claim": {
+      "subject": "http://dbpedia.org/resource/Glen_Cove_Creek",
+      "predicate": "http://worldmind.ai/rivers#hasMouth",
+      "object": "http://dbpedia.org/resource/Hempstead_Harbor"
+    },
+    "expected": "ANSWER",
+    "category": "mouth_valid"
+  },
+  {
+    "id": "MTH3",
+    "answer": "The mouth of Iowa River is Mississippi River.",
+    "claim": {
+      "subject": "http://dbpedia.org/resource/Iowa_River",
+      "predicate": "http://worldmind.ai/rivers#hasMouth",
+      "object": "http://dbpedia.org/resource/Mississippi_River"
+    },
+    "expected": "ANSWER",
+    "category": "mouth_valid"
+  },
+  {
+    "id": "MTH4",
+    "answer": "The mouth of Motts Creek (Nassau County, New York) is Jamaica Bay.",
+    "claim": {
+      "subject": "http://dbpedia.org/resource/Motts_Creek_(Nassau_County,_New_York)",
+      "predicate": "http://worldmind.ai/rivers#hasMouth",
+      "object": "http://dbpedia.org/resource/Jamaica_Bay"
+    },
+    "expected": "ANSWER",
+    "category": "mouth_valid"
+  },
+  {
+    "id": "MTH5",
+    "answer": "The mouth of Swatara Creek is Susquehanna River.",
+    "claim": {
+      "subject": "http://dbpedia.org/resource/Swatara_Creek",
+      "predicate": "http://worldmind.ai/rivers#hasMouth",
+      "object": "http://dbpedia.org/resource/Susquehanna_River"
+    },
+    "expected": "ANSWER",
+    "category": "mouth_valid"
+  },
+  {
+    "id": "MTH6",
+    "answer": "The mouth of Whetstone River is Minnesota River.",
+    "claim": {
+      "subject": "http://dbpedia.org/resource/Whetstone_River",
+      "predicate": "http://worldmind.ai/rivers#hasMouth",
+      "object": "http://dbpedia.org/resource/Minnesota_River"
+    },
+    "expected": "ANSWER",
+    "category": "mouth_valid"
+  }
+]
