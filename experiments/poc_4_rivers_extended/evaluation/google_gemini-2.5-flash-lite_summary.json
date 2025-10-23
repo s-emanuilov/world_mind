@@ -1,0 +1,7 @@
+{
+  "model": "google/gemini-2.5-flash-lite",
+  "total_questions": 12174,
+  "correct_answers": 6100,
+  "accuracy": 0.5010678495153607,
+  "timestamp": "2025-10-23T16:19:05.768945"
+}
