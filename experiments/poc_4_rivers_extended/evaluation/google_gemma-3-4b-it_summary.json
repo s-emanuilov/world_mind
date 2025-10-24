@@ -1,0 +1,7 @@
+{
+  "model": "google/gemma-3-4b-it",
+  "total_questions": 7839,
+  "correct_answers": 1310,
+  "accuracy": 0.16711315218777906,
+  "timestamp": "2025-10-24T07:18:42.243398"
+}
