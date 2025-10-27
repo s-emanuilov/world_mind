@@ -1,0 +1,14 @@
+{
+  "model": "gemma-3-4b-abstain-wrong-only",
+  "mode": "local",
+  "total_questions": 17726,
+  "answered_correctly": 1005,
+  "answered_incorrectly": 5831,
+  "abstained_appropriately": 9318,
+  "abstained_inappropriately": 7110,
+  "invalid_responses": 0,
+  "answer_accuracy": 0.1470157987126975,
+  "abstention_precision": 0.5672023374726077,
+  "abstention_recall": 0.6366493577480186,
+  "timestamp": "2025-10-27T09:38:16.077528"
+}

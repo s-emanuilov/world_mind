@@ -303,7 +303,7 @@ def main():
         return
     
     # Run evaluation
-    evaluator.evaluate_dataset(max_questions=1000)  # Start with smaller subset
+    evaluator.evaluate_dataset(max_questions=20000)  # Start with smaller subset
 
 
 if __name__ == "__main__":

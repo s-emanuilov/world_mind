@@ -1,0 +1,7 @@
+{
+  "model": "google/gemini-2.5-flash-lite",
+  "evaluation_type": "graph_rag",
+  "total_questions": 16626,
+  "correct_answers": 14808,
+  "accuracy": 0.8906531937928546
+}

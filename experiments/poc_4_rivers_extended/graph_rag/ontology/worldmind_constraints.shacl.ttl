@@ -1,0 +1,139 @@
+@prefix : <http://worldmind.ai/rivers-v4#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# SHACL Constraints for Rivers Extended Verification
+
+# Constraint 1: Tributaries must be River instances
+:TributaryTypeConstraint
+    a sh:NodeShape ;
+    sh:targetSubjectsOf :hasTributary ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "Objects of :hasTributary must be instances of :River" ;
+        sh:select """
+            PREFIX : <http://worldmind.ai/rivers-v4#>
+            
+            SELECT $this ?tributary
+            WHERE {
+                $this :hasTributary ?tributary .
+                FILTER NOT EXISTS {
+                    ?tributary rdf:type :River .
+                }
+            }
+        """ ;
+    ] .
+
+# Constraint 2: Source elevation must be positive
+:SourceElevationPositiveConstraint
+    a sh:NodeShape ;
+    sh:targetClass :River ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "Source elevation must be positive" ;
+        sh:select """
+            PREFIX : <http://worldmind.ai/rivers-v4#>
+            
+            SELECT $this
+            WHERE {
+                $this :sourceElevation ?elev .
+                FILTER (?elev <= 0)
+            }
+        """ ;
+    ] .
+
+# Constraint 3: Length must be positive
+:LengthPositiveConstraint
+    a sh:NodeShape ;
+    sh:targetClass :River ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "River length must be positive" ;
+        sh:select """
+            PREFIX : <http://worldmind.ai/rivers-v4#>
+            
+            SELECT $this
+            WHERE {
+                $this :length ?len .
+                FILTER (?len <= 0)
+            }
+        """ ;
+    ] .
+
+# Constraint 4: Discharge must be positive
+:DischargePositiveConstraint
+    a sh:NodeShape ;
+    sh:targetClass :River ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "Discharge must be positive" ;
+        sh:select """
+            PREFIX : <http://worldmind.ai/rivers-v4#>
+            
+            SELECT $this
+            WHERE {
+                $this :discharge ?dis .
+                FILTER (?dis <= 0)
+            }
+        """ ;
+    ] .
+
+# Constraint 5: Rivers with mouth elevation should have it >= 0 (sea level or above)
+:MouthElevationConstraint
+    a sh:NodeShape ;
+    sh:targetClass :River ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "Mouth elevation should typically be >= 0" ;
+        sh:select """
+            PREFIX : <http://worldmind.ai/rivers-v4#>
+            
+            SELECT $this
+            WHERE {
+                $this :mouthElevation ?mouth .
+                FILTER (?mouth < -100)
+            }
+        """ ;
+    ] .
+
+# Constraint 6: Source elevation must be > mouth elevation (rivers flow downhill)
+:RiverFlowDownhillConstraint
+    a sh:NodeShape ;
+    sh:targetClass :River ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "Source elevation must be greater than mouth elevation" ;
+        sh:select """
+            PREFIX : <http://worldmind.ai/rivers-v4#>
+            
+            SELECT $this
+            WHERE {
+                $this :sourceElevation ?src .
+                $this :mouthElevation ?mouth .
+                FILTER (?src <= ?mouth)
+            }
+        """ ;
+    ] .
+
+# Constraint 7: Geographic consistency - if river traverses a state, it should be in that state's country
+:GeographicConsistencyConstraint
+    a sh:NodeShape ;
+    sh:targetSubjectsOf :traverses ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "If traversing US state, river should be in US country" ;
+        sh:select """
+            PREFIX : <http://worldmind.ai/rivers-v4#>
+            PREFIX dbr: <http://dbpedia.org/resource/>
+            
+            SELECT $this
+            WHERE {
+                $this :traverses ?state .
+                ?state rdf:type :State .
+                FILTER NOT EXISTS {
+                    $this :inCountry dbr:United_States .
+                }
+            }
+        """ ;
+    ] .

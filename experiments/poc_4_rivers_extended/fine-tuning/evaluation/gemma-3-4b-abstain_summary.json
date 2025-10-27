@@ -1,0 +1,8 @@
+{
+  "model": "gemma-3-4b-abstain",
+  "mode": "local",
+  "total_questions": 17725,
+  "correct_answers": 1527,
+  "accuracy": 0.08614950634696757,
+  "timestamp": "2025-10-27T09:05:21.986849"
+}

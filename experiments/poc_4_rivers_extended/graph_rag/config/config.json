@@ -1,0 +1,10 @@
+{
+    "graph_path": "data/knowledge_graph.ttl",
+    "ontology_core": "ontology/worldmind_core.ttl",
+    "ontology_constraints": "ontology/worldmind_constraints.shacl.ttl",
+    "dataset_path": "../data/river_qa_dataset_shuffled.csv",
+    "model": "google/gemini-2.5-flash-lite",
+    "max_questions": null,
+    "retrieval_hops": 2,
+    "verification_enabled": true
+}

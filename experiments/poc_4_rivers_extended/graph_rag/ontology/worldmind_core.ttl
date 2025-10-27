@@ -1,0 +1,136 @@
+@prefix : <http://worldmind.ai/rivers-v4#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dbr: <http://dbpedia.org/resource/> .
+
+# Advanced Ontology for Rivers Extended Experiment
+# Core Entities and Properties
+
+# Classes
+:River a owl:Class ;
+    rdfs:label "River" ;
+    rdfs:comment "A natural flowing watercourse" .
+
+:GeographicFeature a owl:Class ;
+    rdfs:label "Geographic Feature" ;
+    rdfs:comment "A natural or administrative geographic entity" .
+
+:State a owl:Class ;
+    rdfs:label "US State" ;
+    rdfs:comment "A US state" .
+
+:County a owl:Class ;
+    rdfs:label "County" ;
+    rdfs:comment "A county subdivision" .
+
+:Country a owl:Class ;
+    rdfs:label "Country" ;
+    rdfs:comment "A country or nation" .
+
+:RiverSystem a owl:Class ;
+    rdfs:label "River System" ;
+    rdfs:comment "A major river system or watershed" .
+
+:Elevation a owl:Class ;
+    rdfs:label "Elevation" ;
+    rdfs:comment "An elevation measurement in meters" .
+
+# Object Properties
+:hasSource a owl:ObjectProperty ;
+    rdfs:label "has source" ;
+    rdfs:comment "Relates a river to its source feature" ;
+    rdfs:domain :River ;
+    rdfs:range :GeographicFeature .
+
+:hasMouth a owl:ObjectProperty ;
+    rdfs:label "has mouth" ;
+    rdfs:comment "Relates a river to its terminus" ;
+    rdfs:domain :River ;
+    rdfs:range :GeographicFeature .
+
+:hasTributary a owl:ObjectProperty ;
+    rdfs:label "has tributary" ;
+    rdfs:comment "Relates a river to a tributary" ;
+    rdfs:domain :River ;
+    rdfs:range :River .
+
+:flowsInto a owl:ObjectProperty ;
+    rdfs:label "flows into" ;
+    rdfs:comment "Relates a river to another river it flows into" ;
+    rdfs:domain :River ;
+    rdfs:range :River .
+
+:traverses a owl:ObjectProperty ;
+    rdfs:label "traverses" ;
+    rdfs:comment "Relates a river to a US state it passes through" ;
+    rdfs:domain :River ;
+    rdfs:range :State .
+
+:inCounty a owl:ObjectProperty ;
+    rdfs:label "in county" ;
+    rdfs:comment "Relates a river to a county" ;
+    rdfs:domain :River ;
+    rdfs:range :County .
+
+:inCountry a owl:ObjectProperty ;
+    rdfs:label "in country" ;
+    rdfs:comment "Relates a river to a country" ;
+    rdfs:domain :River ;
+    rdfs:range :Country .
+
+:partOfSystem a owl:ObjectProperty ;
+    rdfs:label "part of river system" ;
+    rdfs:comment "Relates a river to a river system" ;
+    rdfs:domain :River ;
+    rdfs:range :RiverSystem .
+
+:drainsInto a owl:ObjectProperty ;
+    rdfs:label "drains into" ;
+    rdfs:comment "Relates a river to its drainage basin" ;
+    rdfs:domain :River ;
+    rdfs:range :GeographicFeature .
+
+# Data Properties
+:length a owl:DatatypeProperty ;
+    rdfs:label "length" ;
+    rdfs:comment "River length in meters" ;
+    rdfs:domain :River ;
+    rdfs:range xsd:double .
+
+:discharge a owl:DatatypeProperty ;
+    rdfs:label "discharge" ;
+    rdfs:comment "Average discharge in cubic meters per second" ;
+    rdfs:domain :River ;
+    rdfs:range xsd:double .
+
+:elevation a owl:DatatypeProperty ;
+    rdfs:label "elevation" ;
+    rdfs:comment "Elevation in meters" ;
+    rdfs:domain :GeographicFeature ;
+    rdfs:range xsd:double .
+
+:sourceElevation a owl:DatatypeProperty ;
+    rdfs:label "source elevation" ;
+    rdfs:comment "Source elevation in meters" ;
+    rdfs:domain :River ;
+    rdfs:range xsd:double .
+
+:mouthElevation a owl:DatatypeProperty ;
+    rdfs:label "mouth elevation" ;
+    rdfs:comment "Mouth elevation in meters" ;
+    rdfs:domain :River ;
+    rdfs:range xsd:double .
+
+:abstractText a owl:DatatypeProperty ;
+    rdfs:label "abstract text" ;
+    rdfs:comment "Descriptive text about the river" ;
+    rdfs:domain :River ;
+    rdfs:range xsd:string .
+
+:otherNames a owl:DatatypeProperty ;
+    rdfs:label "other names" ;
+    rdfs:comment "Alternative names for the river" ;
+    rdfs:domain :River ;
+    rdfs:range xsd:string .
