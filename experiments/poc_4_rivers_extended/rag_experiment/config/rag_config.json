@@ -1,0 +1,20 @@
+{
+    "embedding_model": "intfloat/multilingual-e5-large-instruct",
+    "embedding_dimension": 1024,
+    "max_tokens": 512,
+    "chunk_size": 400,
+    "chunk_overlap": 50,
+    "retrieval_top_k": 5,
+    "similarity_threshold": 0.7,
+    "data_paths": {
+        "questions": "/Users/sim/Projects/world_mind/experiments/poc_4_rivers_extended/data/river_qa_dataset_shuffled.csv",
+        "documents": "/Users/sim/Projects/world_mind/experiments/poc_4_rivers_extended/data/raw_rivers_filled.csv"
+    },
+    "output_paths": {
+        "chunks": "data/river_chunks.json",
+        "embeddings": "embeddings/river_embeddings.npy",
+        "metadata": "embeddings/chunk_metadata.json",
+        "results": "results/rag_evaluation_results.jsonl"
+    },
+    "task_instruction": "Given a question about US rivers and waterways, retrieve relevant passages that answer the query"
+}

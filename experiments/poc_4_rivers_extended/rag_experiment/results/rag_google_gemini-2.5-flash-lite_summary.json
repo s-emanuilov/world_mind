@@ -1,0 +1,10 @@
+{
+  "model": "google/gemini-2.5-flash-lite",
+  "evaluation_type": "RAG",
+  "new_questions": 1000,
+  "new_correct": 882,
+  "total_questions": 2358,
+  "total_correct": 2110,
+  "accuracy": 0.8948261238337574,
+  "timestamp": "2025-10-24T15:51:33.791643"
+}

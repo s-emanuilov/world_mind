@@ -183,7 +183,7 @@ def main():
     # Configuration
     dataset_path = '../data/river_qa_dataset_shuffled.csv'  # Use shuffled dataset
     results_dir = '../evaluation'
-    model_name = "google/gemma-3-4b-it" # 'google/gemini-2.5-flash-lite'  # Start with one model
+    model_name = "anthropic/claude-sonnet-4.5" # 'google/gemini-2.5-flash-lite'  # Start with one model
     
     # Create evaluator
     evaluator = LLMEvaluator(model_name, dataset_path, results_dir)

@@ -28,3 +28,4 @@ experiments/*/artifacts/
 # OS
 .DS_Store
 Thumbs.db
+river_embeddings.npy
