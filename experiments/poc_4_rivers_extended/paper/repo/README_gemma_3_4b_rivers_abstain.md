@@ -107,3 +107,5 @@ This model inherits the Gemma license from Google. LoRA adapters are released un
 Training conducted using Unsloth AI for efficient LoRA fine-tuning with 4-bit quantization on consumer hardware.
 
 
+
+

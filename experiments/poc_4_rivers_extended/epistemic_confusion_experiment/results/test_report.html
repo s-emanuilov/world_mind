@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorldMind – Epistemic Confusion Experiment Results</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            margin: 0;
+            padding: 2rem;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #1a1a1a;
+            border-bottom: 3px solid #0066cc;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        h2 {
+            color: #333;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 0.3rem;
+        }
+        h3 {
+            color: #555;
+            margin-top: 1.5rem;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 1rem 0;
+            background: white;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 0.6rem 0.8rem;
+            text-align: left;
+        }
+        th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+            color: #333;
+        }
+        tr:hover {
+            background-color: #f8f9fa;
+        }
+        .metric-high {
+            color: #0a8a0a;
+            font-weight: 600;
+        }
+        .metric-low {
+            color: #cc0000;
+            font-weight: 600;
+        }
+        .metric-mid {
+            color: #666;
+        }
+        .confusion-matrix {
+            display: inline-block;
+            margin: 1rem 0;
+        }
+        .confusion-matrix td {
+            text-align: center;
+            min-width: 80px;
+        }
+        .confusion-matrix th {
+            text-align: center;
+            font-weight: 600;
+        }
+        .label-E { background-color: #d4edda; }
+        .label-C { background-color: #f8d7da; }
+        .label-U { background-color: #fff3cd; }
+        .pass { color: #0a8a0a; font-weight: 600; }
+        .fail { color: #cc0000; font-weight: 600; }
+        .summary-box {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 4px;
+            margin: 1rem 0;
+            border-left: 4px solid #0066cc;
+        }
+        .metric-explanation {
+            font-size: 0.9em;
+            color: #666;
+            font-style: italic;
+            margin-top: 0.5rem;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+<h1>WorldMind – Epistemic Confusion Experiment Results</h1>
+    <div class="summary-box">
+        <p><strong>Experiment:</strong> Testing abstention precision via context cards with three epistemic states:</p>
+        <ul>
+            <li><strong>E (Entailed):</strong> Facts present in knowledge graph</li>
+            <li><strong>C (Contradictory):</strong> Facts that violate constraints or are explicitly negated</li>
+            <li><strong>U (Unknown):</strong> Facts not present and not provably wrong (open-world)</li>
+        </ul>
+        <p><strong>Goal:</strong> Measure systems' ability to abstain when appropriate (high AP, CVRR) 
+        while maintaining answer accuracy on entailed facts (high LA).</p>
+    </div>
+    <p><strong>Systems evaluated:</strong> kg</p><p><strong>Total test cards:</strong> 40</p><h2>Summary Metrics</h2><p class="metric-explanation">Key metrics for evaluating abstention behavior:</p><table><tr><th>System</th><th>AP<br/><small>(Abstention Precision)</small></th><th>CVRR<br/><small>(Constraint Violation Reject)</small></th><th>FAR-NE<br/><small>(False Answer on Non-Entailed)</small></th><th>LA<br/><small>(Licensed Answer Accuracy)</small></th><th>Coverage<br/><small>(% Answered)</small></th><th>Overall<br/><small>(Accuracy)</small></th></tr><tr><td><strong>kg</strong></td><td class='metric-high'>1.000</td><td class='metric-low'>0.500</td><td class='metric-mid'>0.333</td><td class='metric-high'>1.000</td><td>0.500</td><td>0.750</td></tr></table>
+    <div class="metric-explanation">
+        <strong>Metric Definitions:</strong>
+        <ul>
+            <li><strong>AP (Abstention Precision):</strong> Of all abstentions, what fraction were correct?</li>
+            <li><strong>CVRR:</strong> Of contradictory cases, what fraction were rejected?</li>
+            <li><strong>FAR-NE:</strong> Of non-entailed cases, how often did system answer incorrectly? (lower is better)</li>
+            <li><strong>LA:</strong> Of entailed cases, what fraction were answered correctly?</li>
+        </ul>
+    </div>
+    <h2>Confusion Matrices</h2><p>Breakdown of actions (Answer/Abstain) vs ground truth (E/C/U):</p><h3>kg</h3><table class="confusion-matrix"><tr><th></th><th>E (Entailed)</th><th>C (Contradictory)</th><th>U (Unknown)</th></tr><tr><th>ANSWER</th><td>10</td><td>10</td><td>0</td></tr><tr><th>ABSTAIN</th><td>0</td><td>10</td><td>10</td></tr></table><h2>Detailed Metrics by System</h2><h3>kg</h3><table><tr><th>Metric</th><th>Value</th><th>Description</th></tr><tr><td><strong>AP (overall)</strong></td><td>1.000</td><td>Precision of abstentions</td></tr><tr><td><strong>AP on invalid (C)</strong></td><td>1.000</td><td>Precision on contradictory claims</td></tr><tr><td><strong>AP on unknown (U)</strong></td><td>1.000</td><td>Precision on unknown claims</td></tr><tr><td><strong>AR (overall)</strong></td><td>0.667</td><td>Recall of abstentions</td></tr><tr><td><strong>AR on contradictory</strong></td><td>0.500</td><td>Recall on contradictory claims</td></tr><tr><td><strong>AR on unknown</strong></td><td>1.000</td><td>Recall on unknown claims</td></tr><tr><td><strong>CVRR</strong></td><td>0.500</td><td>Constraint violation rejection rate</td></tr><tr><td><strong>FAR-NE</strong></td><td>0.333</td><td>False answer rate on non-entailed</td></tr><tr><td><strong>LA</strong></td><td>1.000</td><td>Licensed answer accuracy</td></tr><tr><td><strong>Coverage</strong></td><td>0.500</td><td>Fraction of claims answered</td></tr><tr><td><strong>Answer accuracy</strong></td><td>0.500</td><td>Accuracy when answering (not abstaining)</td></tr><tr><td><strong>Overall accuracy</strong></td><td>0.750</td><td>Overall correctness rate</td></tr></table><p><strong>Test set breakdown:</strong> Entailed: 10, Contradictory: 20, Unknown: 10</p><h2>Sample Results (First 100 Cards)</h2><table><tr><th>Card ID</th><th>System</th><th>Label</th><th>Gold</th><th>Prediction</th><th>Result</th></tr><tr class='label-E'><td><code>CARD_E_000000</code></td><td>kg</td><td><strong>E</strong></td><td>YES</td><td>YES</td><td class='pass'>✓</td></tr><tr class='label-E'><td><code>CARD_E_000001</code></td><td>kg</td><td><strong>E</strong></td><td>YES</td><td>YES</td><td class='pass'>✓</td></tr><tr class='label-E'><td><code>CARD_E_000002</code></td><td>kg</td><td><strong>E</strong></td><td>YES</td><td>YES</td><td class='pass'>✓</td></tr><tr class='label-E'><td><code>CARD_E_000003</code></td><td>kg</td><td><strong>E</strong></td><td>YES</td><td>YES</td><td class='pass'>✓</td></tr><tr class='label-E'><td><code>CARD_E_000004</code></td><td>kg</td><td><strong>E</strong></td><td>YES</td><td>YES</td><td class='pass'>✓</td></tr><tr class='label-E'><td><code>CARD_E_000005</code></td><td>kg</td><td><strong>E</strong></td><td>YES</td><td>YES</td><td class='pass'>✓</td></tr><tr class='label-E'><td><code>CARD_E_000006</code></td><td>kg</td><td><strong>E</strong></td><td>YES</td><td>YES</td><td class='pass'>✓</td></tr><tr class='label-E'><td><code>CARD_E_000007</code></td><td>kg</td><td><strong>E</strong></td><td>YES</td><td>YES</td><td class='pass'>✓</td></tr><tr class='label-E'><td><code>CARD_E_000008</code></td><td>kg</td><td><strong>E</strong></td><td>YES</td><td>YES</td><td class='pass'>✓</td></tr><tr class='label-E'><td><code>CARD_E_000009</code></td><td>kg</td><td><strong>E</strong></td><td>YES</td><td>YES</td><td class='pass'>✓</td></tr><tr class='label-C'><td><code>CARD_C_000010</code></td><td>kg</td><td><strong>C</strong></td><td>NO</td><td>NO</td><td class='pass'>✓</td></tr><tr class='label-C'><td><code>CARD_C_000011</code></td><td>kg</td><td><strong>C</strong></td><td>NO</td><td>NO</td><td class='pass'>✓</td></tr><tr class='label-C'><td><code>CARD_C_000012</code></td><td>kg</td><td><strong>C</strong></td><td>NO</td><td>NO</td><td class='pass'>✓</td></tr><tr class='label-C'><td><code>CARD_C_000013</code></td><td>kg</td><td><strong>C</strong></td><td>NO</td><td>NO</td><td class='pass'>✓</td></tr><tr class='label-C'><td><code>CARD_C_000014</code></td><td>kg</td><td><strong>C</strong></td><td>NO</td><td>NO</td><td class='pass'>✓</td></tr><tr class='label-C'><td><code>CARD_C_000015</code></td><td>kg</td><td><strong>C</strong></td><td>NO</td><td>NO</td><td class='pass'>✓</td></tr><tr class='label-C'><td><code>CARD_C_000016</code></td><td>kg</td><td><strong>C</strong></td><td>NO</td><td>NO</td><td class='pass'>✓</td></tr><tr class='label-C'><td><code>CARD_C_000017</code></td><td>kg</td><td><strong>C</strong></td><td>NO</td><td>NO</td><td class='pass'>✓</td></tr><tr class='label-C'><td><code>CARD_C_000018</code></td><td>kg</td><td><strong>C</strong></td><td>NO</td><td>NO</td><td class='pass'>✓</td></tr><tr class='label-C'><td><code>CARD_C_000019</code></td><td>kg</td><td><strong>C</strong></td><td>NO</td><td>NO</td><td class='pass'>✓</td></tr><tr class='label-U'><td><code>CARD_U_000020</code></td><td>kg</td><td><strong>U</strong></td><td>UNKNOWN</td><td>UNKNOWN</td><td class='pass'>✓</td></tr><tr class='label-U'><td><code>CARD_U_000021</code></td><td>kg</td><td><strong>U</strong></td><td>UNKNOWN</td><td>UNKNOWN</td><td class='pass'>✓</td></tr><tr class='label-U'><td><code>CARD_U_000022</code></td><td>kg</td><td><strong>U</strong></td><td>UNKNOWN</td><td>UNKNOWN</td><td class='pass'>✓</td></tr><tr class='label-U'><td><code>CARD_U_000023</code></td><td>kg</td><td><strong>U</strong></td><td>UNKNOWN</td><td>UNKNOWN</td><td class='pass'>✓</td></tr><tr class='label-U'><td><code>CARD_U_000024</code></td><td>kg</td><td><strong>U</strong></td><td>UNKNOWN</td><td>UNKNOWN</td><td class='pass'>✓</td></tr><tr class='label-U'><td><code>CARD_U_000025</code></td><td>kg</td><td><strong>U</strong></td><td>UNKNOWN</td><td>UNKNOWN</td><td class='pass'>✓</td></tr><tr class='label-U'><td><code>CARD_U_000026</code></td><td>kg</td><td><strong>U</strong></td><td>UNKNOWN</td><td>UNKNOWN</td><td class='pass'>✓</td></tr><tr class='label-U'><td><code>CARD_U_000027</code></td><td>kg</td><td><strong>U</strong></td><td>UNKNOWN</td><td>UNKNOWN</td><td class='pass'>✓</td></tr><tr class='label-U'><td><code>CARD_U_000028</code></td><td>kg</td><td><strong>U</strong></td><td>UNKNOWN</td><td>UNKNOWN</td><td class='pass'>✓</td></tr><tr class='label-U'><td><code>CARD_U_000029</code></td><td>kg</td><td><strong>U</strong></td><td>UNKNOWN</td><td>UNKNOWN</td><td class='pass'>✓</td></tr><tr class='label-C'><td><code>CARD_D_000030</code></td><td>kg</td><td><strong>C</strong></td><td>NO</td><td>UNKNOWN</td><td class='fail'>✗</td></tr><tr class='label-C'><td><code>CARD_D_000031</code></td><td>kg</td><td><strong>C</strong></td><td>NO</td><td>UNKNOWN</td><td class='fail'>✗</td></tr><tr class='label-C'><td><code>CARD_D_000032</code></td><td>kg</td><td><strong>C</strong></td><td>NO</td><td>UNKNOWN</td><td class='fail'>✗</td></tr><tr class='label-C'><td><code>CARD_D_000033</code></td><td>kg</td><td><strong>C</strong></td><td>NO</td><td>UNKNOWN</td><td class='fail'>✗</td></tr><tr class='label-C'><td><code>CARD_D_000034</code></td><td>kg</td><td><strong>C</strong></td><td>NO</td><td>UNKNOWN</td><td class='fail'>✗</td></tr><tr class='label-C'><td><code>CARD_D_000035</code></td><td>kg</td><td><strong>C</strong></td><td>NO</td><td>UNKNOWN</td><td class='fail'>✗</td></tr><tr class='label-C'><td><code>CARD_D_000036</code></td><td>kg</td><td><strong>C</strong></td><td>NO</td><td>UNKNOWN</td><td class='fail'>✗</td></tr><tr class='label-C'><td><code>CARD_D_000037</code></td><td>kg</td><td><strong>C</strong></td><td>NO</td><td>UNKNOWN</td><td class='fail'>✗</td></tr><tr class='label-C'><td><code>CARD_D_000038</code></td><td>kg</td><td><strong>C</strong></td><td>NO</td><td>UNKNOWN</td><td class='fail'>✗</td></tr><tr class='label-C'><td><code>CARD_D_000039</code></td><td>kg</td><td><strong>C</strong></td><td>NO</td><td>UNKNOWN</td><td class='fail'>✗</td></tr></table>
+    <div class="summary-box" style="margin-top: 2rem;">
+        <p><strong>Interpretation:</strong></p>
+        <ul>
+            <li>High <strong>AP</strong> and <strong>CVRR</strong> indicate the system correctly identifies when to abstain</li>
+            <li>Low <strong>FAR-NE</strong> means the system rarely answers incorrectly on non-entailed claims</li>
+            <li>High <strong>LA</strong> ensures the system still answers correctly on entailed facts</li>
+            <li>Graph-licensed systems should excel at all four metrics compared to statistical baselines</li>
+        </ul>
+    </div>
+    </div></body></html>

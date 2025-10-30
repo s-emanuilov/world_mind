@@ -1,0 +1,39 @@
+{
+  "claude-sonnet-4": {
+    "counts": {
+      "A_E": 10,
+      "A_C": 10,
+      "A_U": 10
+    },
+    "confusion_matrix": {
+      "A_E": 10,
+      "A_C": 10,
+      "A_U": 10,
+      "S_E": 0,
+      "S_C": 0,
+      "S_U": 0
+    },
+    "totals": {
+      "entailed": 10,
+      "contradictory": 10,
+      "unknown": 10,
+      "non_entailed": 20,
+      "abstentions": 0,
+      "answers": 30
+    },
+    "metrics": {
+      "AP": null,
+      "AP_invalid": null,
+      "AP_unknown": null,
+      "AR": 0.0,
+      "AR_contradictory": 0.0,
+      "AR_unknown": 0.0,
+      "CVRR": 0.0,
+      "FAR_NE": 1.0,
+      "LA": 1.0,
+      "coverage": 1.0,
+      "answer_accuracy": 0.3333333333333333,
+      "overall_accuracy": 0.3333333333333333
+    }
+  }
+}

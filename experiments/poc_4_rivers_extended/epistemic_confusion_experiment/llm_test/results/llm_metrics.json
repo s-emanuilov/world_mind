@@ -1,0 +1,72 @@
+{
+  "claude-3.5-sonnet": {
+    "counts": {
+      "A_E": 20
+    },
+    "confusion_matrix": {
+      "A_E": 20,
+      "A_C": 0,
+      "A_U": 0,
+      "S_E": 0,
+      "S_C": 0,
+      "S_U": 0
+    },
+    "totals": {
+      "entailed": 20,
+      "contradictory": 0,
+      "unknown": 0,
+      "non_entailed": 0,
+      "abstentions": 0,
+      "answers": 20
+    },
+    "metrics": {
+      "AP": null,
+      "AP_invalid": null,
+      "AP_unknown": null,
+      "AR": null,
+      "AR_contradictory": null,
+      "AR_unknown": null,
+      "CVRR": null,
+      "FAR_NE": null,
+      "LA": 1.0,
+      "coverage": 1.0,
+      "answer_accuracy": 1.0,
+      "overall_accuracy": 1.0
+    }
+  },
+  "gpt-4": {
+    "counts": {
+      "A_E": 20
+    },
+    "confusion_matrix": {
+      "A_E": 20,
+      "A_C": 0,
+      "A_U": 0,
+      "S_E": 0,
+      "S_C": 0,
+      "S_U": 0
+    },
+    "totals": {
+      "entailed": 20,
+      "contradictory": 0,
+      "unknown": 0,
+      "non_entailed": 0,
+      "abstentions": 0,
+      "answers": 20
+    },
+    "metrics": {
+      "AP": null,
+      "AP_invalid": null,
+      "AP_unknown": null,
+      "AR": null,
+      "AR_contradictory": null,
+      "AR_unknown": null,
+      "CVRR": null,
+      "FAR_NE": null,
+      "LA": 1.0,
+      "coverage": 1.0,
+      "answer_accuracy": 1.0,
+      "overall_accuracy": 1.0
+    }
+  }
+}
