@@ -1,0 +1,79 @@
+{
+  "graph_rag": {
+    "counts": {
+      "A_E": 500,
+      "A_C": 500,
+      "S_U": 500,
+      "S_C": 497
+    },
+    "confusion_matrix": {
+      "A_E": 500,
+      "A_C": 500,
+      "A_U": 0,
+      "S_E": 0,
+      "S_C": 497,
+      "S_U": 500
+    },
+    "totals": {
+      "entailed": 500,
+      "contradictory": 997,
+      "unknown": 500,
+      "non_entailed": 1497,
+      "abstentions": 997,
+      "answers": 1000
+    },
+    "metrics": {
+      "AP": 1.0,
+      "AP_invalid": 1.0,
+      "AP_unknown": 1.0,
+      "AR": 0.665998663994656,
+      "AR_contradictory": 0.49849548645937813,
+      "AR_unknown": 1.0,
+      "CVRR": 0.49849548645937813,
+      "FAR_NE": 0.33400133600534404,
+      "LA": 1.0,
+      "coverage": 0.5007511266900351,
+      "answer_accuracy": 0.5,
+      "overall_accuracy": 0.7496244366549825
+    }
+  },
+  "kg": {
+    "counts": {
+      "A_E": 500,
+      "A_C": 501,
+      "S_U": 498,
+      "A_U": 2,
+      "S_C": 496
+    },
+    "confusion_matrix": {
+      "A_E": 500,
+      "A_C": 501,
+      "A_U": 2,
+      "S_E": 0,
+      "S_C": 496,
+      "S_U": 498
+    },
+    "totals": {
+      "entailed": 500,
+      "contradictory": 997,
+      "unknown": 500,
+      "non_entailed": 1497,
+      "abstentions": 994,
+      "answers": 1003
+    },
+    "metrics": {
+      "AP": 1.0,
+      "AP_invalid": 1.0,
+      "AP_unknown": 1.0,
+      "AR": 0.663994655978624,
+      "AR_contradictory": 0.4974924774322969,
+      "AR_unknown": 0.996,
+      "CVRR": 0.4974924774322969,
+      "FAR_NE": 0.3360053440213761,
+      "LA": 1.0,
+      "coverage": 0.5022533800701051,
+      "answer_accuracy": 0.4985044865403789,
+      "overall_accuracy": 0.7481221832749124
+    }
+  }
+}
