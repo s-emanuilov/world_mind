@@ -273,3 +273,5 @@ The CVRR ≈ 50% is **by design** (detects explicit but not implicit contradicti
 **Assessment**: Results validated and explained  
 **Next step**: Integrate into paper with noted caveats
 
+
+
